@@ -1,0 +1,39 @@
+Első lekérdezés------------------------------------------------------------------
+
+
+SELECT
+    *
+FROM
+    tanulo
+INNER JOIN jegyek ON tanulo.id_tanulo = jegyek.tanulo_id
+INNER JOIN ertekeles_modja ON jegyek.ertekeles_modja_id = ertekeles_modja.id_ertekeles_modja
+INNER JOIN oktato ON jegyek.oktato_id = oktato.id_oktato
+INNER JOIN tantargy ON jegyek.tantargy_id = tantargy.id_tantagy
+WHERE
+    1;
+
+
+Második lekérdezés -------------------------------------------------------------
+
+
+SELECT
+    *
+	jegyek.jegy;
+	COUNT(jegyek.jegy) AS 'db jegy van'
+FROM
+    tanulo
+INNER JOIN jegyek ON tanulo.id_tanulo = jegyek.tanulo_id
+INNER JOIN ertekeles_modja ON jegyek.ertekeles_modja_id = ertekeles_modja.id_ertekeles_modja
+INNER JOIN oktato ON jegyek.oktato_id = oktato.id_oktato
+INNER JOIN tantargy ON jegyek.tantargy_id = tantargy.id_tantagy
+WHERE
+    1
+GROUP BY
+	jegyek.jegy
+ORDER BY
+	1
+DESC
+	;
+
+
+Jegyek számának visszaadása---------------------------------------------------
